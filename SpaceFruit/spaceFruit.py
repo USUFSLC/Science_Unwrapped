@@ -124,8 +124,11 @@ class spaceFruit(object):
 			self.score = self.score + 1
 			random.shuffle(self.coloumn)
 		else:
-			self.coloumnXpos = self.coloumnXpos - .5
-		
+			"""
+			"""
+			self.coloumnXpos = self.coloumnXpos - 1
+			"""
+			"""
 		for i in range(len(self.coloumn)):
 			self.coloumn[i].update(i, self.coloumnXpos)
 		
