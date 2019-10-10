@@ -134,8 +134,7 @@ class spaceFruit(object):
 		else:
 			"""
 			"""
-			self.coloumnXpos = self.coloumnXpos - 4
-		
+			self.coloumnXpos = self.coloumnXpos - .25
 			"""
 			"""
 		for i in range(len(self.coloumn)):
@@ -163,27 +162,21 @@ class spaceFruit(object):
 				self.downstate = True
 			if self.mpr121[1].value == False and self.downstate:
 					self.penguin.state = (self.penguin.state + 1) %3
-					self.downstate = False
-					if self.gameState == 2:
-						self.gameState = 1
-						self.score = -1
+					self.downstate = False 
 					
 			if self.mpr121[0].value or self.upstate:
 				self.upstate = True
 			if self.mpr121[0].value == False and self.upstate:
 					self.penguin.state = (self.penguin.state + 2) %3
 					self.upstate = False
-					if self.gameState == 2:
-						self.gameState = 1
-						self.score = -1
 			
 			for event in pygame.event.get():
 
 				if event.type == pygame.QUIT:
-					self.running = False
+					running = False
 				if event.type == pygame.KEYDOWN:
 					if event.key == pygame.K_ESCAPE:
-						self.running = False
+						running = False
 							
 					if self.gameState == 0:
 						if event.key == pygame.K_DOWN or event.key == pygame.K_UP:
